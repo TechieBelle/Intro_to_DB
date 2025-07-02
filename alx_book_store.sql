@@ -17,14 +17,15 @@ CREATE TABLE IF NOT EXISTS Authors (
 );
 
 CREATE TABLE IF NOT EXISTS Customers(
-    customer_id  PRIMARY KEY,
+    customer_id INT PRIMARY KEY,
     customer_name VARCHAR(215),
     email VARCHAR(215),
     address TEXT
 );
 
 CREATE TABLE IF NOT EXISTS Orders(
-    order_id PRIMARY KEY,
+    order_id INT PRIMARY KEY,
+    customer_id INT,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
     order_date DATE
 );
